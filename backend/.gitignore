@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# TypeScript compiled files
+*.js
+*.js.map
+*.d.ts
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+
+# OS/IDE
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

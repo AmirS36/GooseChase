@@ -4,8 +4,8 @@ const router = Router();
 
 // Mock user for example purposes
 const mockUser = {
-  username: "user123",
-  password: "password123", // Don't store plaintext passwords in real apps!
+  username: "123",
+  password: "123", // Don't store plaintext passwords in real apps!
 };
 
 router.post("/login", (req: Request, res: Response) => {

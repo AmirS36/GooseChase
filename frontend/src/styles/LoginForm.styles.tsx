@@ -75,4 +75,23 @@ export const Message = styled.p<{ isError?: boolean }>`
   text-align: center;
   margin-top: 1rem;
   font-size: 0.9rem;
-`; 
+`;
+
+export const Text = styled.p`
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+`;
+
+export const LinkButton = styled.button`
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+
+  &:hover {
+    color: #0056b3;
+  }
+`;

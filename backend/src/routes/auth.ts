@@ -1,24 +1,23 @@
 import { Router, Request, Response } from "express";
+import prisma from "../lib/prisma";
+import { generateToken } from '../lib/jwt';
+
 
 const router = Router();
 
-// Mock user for example purposes
-const mockUser = {
-  username: "123",
-  password: "123", // Don't store plaintext passwords in real apps!
-};
-
-router.post("/login", (req: Request, res: Response) => {
+router.post("/login", async (req: Request, res: Response) => {
   const { username, password } = req.body;
-  console.log(req.body);
 
-  if (username === mockUser.username && password === mockUser.password) {
-    console.log("Correct user name and password");
-    console.log(res);
-    res.status(200).json({ message: "Login successful" });
-  } else {
+  const user = await prisma.user.findUnique({ where: { username } });
+
+  if (!user || user.password !== password) {
     res.status(401).json({ message: "Invalid credentials" });
+    return;
   }
+
+  const token = generateToken({ userId: user.id, username: user.username });
+
+  res.json({ token });
 });
 
 export default router;

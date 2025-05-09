@@ -17,5 +17,14 @@ model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
   password  String
-  createdAt DateTime @default(now())
+  
+  // Preferences
+  likesHipHop     Float    @default(0)
+  likesPop        Float    @default(0)
+  prefersHappy    Float    @default(0)
+  avgBPM          Float    @default(0)
+  allowExplicit   Boolean  @default(false)
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
 }

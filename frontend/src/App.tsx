@@ -1,13 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
-import SwipingTest from './components/SwipingTest';
+import RegisterForm from './components/RegisterForm';
 
 const App = () => {
-    return (
+    return (      
       <Routes>
         <Route path="/" element={<LoginForm />} />
-        <Route path="/swiping-test" element={<SwipingTest />} />
-      </Routes>
+        <Route path="/register" element={<RegisterForm />} />
+      </Routes>    
     );
   };
   

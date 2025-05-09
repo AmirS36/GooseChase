@@ -14,7 +14,7 @@ import {
   LinkButton,
 } from "../styles/LoginForm.styles";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -24,10 +24,10 @@ const LoginForm = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Login button clicked");
+    console.log("Register button clicked");
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,19 +36,15 @@ const LoginForm = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("token", data.token); // Store the token in local storage
-        localStorage.setItem("username", username); // Store the username in local storage
-        setMessage("Login successful! Redirecting...");
+        setMessage("Registration successful! Redirecting to login...");
         setIsError(false);
-        setTimeout(() => navigate("/"), 2000); // Redirect to home after 2 seconds
-
+        setTimeout(() => navigate("/"), 2000); // Redirect to login after 2 seconds
       } else {
-        setMessage("Invalid credentials");
+        setMessage("Registration failed. Please try again.");
         setIsError(true);
       }
     } catch (err) {
-      setMessage("Login failed. Please try again.");
+      setMessage("An error occurred. Please try again.");
       setIsError(true);
     }
   };
@@ -56,7 +52,7 @@ const LoginForm = () => {
   return (
     <Container>
       <FormContainer>
-        <Title>Login</Title>
+        <Title>Register</Title>
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label htmlFor="username">Username</Label>
@@ -83,17 +79,15 @@ const LoginForm = () => {
             />
           </FormGroup>
           {message && <Message isError={isError}>{message}</Message>}
-          <Button type="submit">Login</Button>
+          <Button type="submit">Register</Button>
         </Form>
         <Text>
-          Don't have an account?{" "}
-          <LinkButton onClick={() => navigate("/register")}>
-            Register here
-          </LinkButton>
+          Already have an account?{" "}
+          <LinkButton onClick={() => navigate("/")}>Login here</LinkButton>
         </Text>
       </FormContainer>
     </Container>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -23,3 +23,7 @@ logs/
 *.swo
 .idea/
 .vscode/
+
+# Database files
+dev.db
+*.db

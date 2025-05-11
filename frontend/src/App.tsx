@@ -1,12 +1,14 @@
 import { Routes, Route, Router } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+import LoginForm from './pages/LoginForm';
+import RegisterForm from './pages/RegisterForm';
+import Home from './pages/Home';
 
 const App = () => {
     return (      
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/home" element={<Home />} />    
       </Routes>    
     );
   };

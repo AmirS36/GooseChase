@@ -41,7 +41,7 @@ const LoginForm = () => {
         localStorage.setItem("username", username); // Store the username in local storage
         setMessage("Login successful! Redirecting...");
         setIsError(false);
-        setTimeout(() => navigate("/"), 2000); // Redirect to home after 2 seconds
+        setTimeout(() => navigate("/home"), 2000); // Redirect to home after 2 seconds
 
       } else {
         setMessage("Invalid credentials");

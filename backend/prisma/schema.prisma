@@ -14,17 +14,24 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  username  String   @unique
-  password  String
-  
-  // Preferences
-  likesHipHop     Float    @default(0)
-  likesPop        Float    @default(0)
-  prefersHappy    Float    @default(0)
-  avgBPM          Float    @default(0)
-  allowExplicit   Boolean  @default(false)
+  id          Int         @id @default(autoincrement())
+  username    String      @unique
+  password    String
 
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @default(now())
+  preference  Preference? @relation(fields: [preferenceId], references: [id])
+  preferenceId Int?       @unique
+
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @default(now())
+}
+
+model Preference {
+  id            Int      @id @default(autoincrement())
+  likesHipHop   Float    @default(0)
+  likesPop      Float    @default(0)
+  prefersHappy  Float    @default(0)
+  avgBPM        Float    @default(0)
+  allowExplicit Boolean  @default(false)
+
+  user          User?    @relation
 }

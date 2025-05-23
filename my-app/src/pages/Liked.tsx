@@ -30,10 +30,7 @@ const Home = () => {
 
       {/* Middle Section */}
       <main className="flex-1 flex flex-col items-center justify-center px-6">
-        <h1 className="text-2xl font-bold mb-4">Welcome to Beatwave</h1>
-        <p className="text-center text-gray-300 mb-6">
-          Discover new music, manage your playlists, and enjoy your favorite songs.
-        </p>
+        <h1 className="text-2xl font-bold mb-4">Your previously liked songs</h1>
         <div className="w-full h-48 bg-white/10 rounded-lg flex items-center justify-center">
           <p className="text-gray-400">Your music player will go here</p>
         </div>

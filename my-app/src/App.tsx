@@ -4,6 +4,7 @@ import LoginForm from './pages/LoginForm';
 import RegisterForm from './pages/RegisterForm';
 import Home from './pages/Home';
 import Discover from './pages/Discover';
+import Liked from './pages/Liked';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/home" element={<Home />} />
       <Route path="/discover" element={<Discover />} />
+      <Route path="/liked" element={<Liked />} />
       {/* Add more routes as needed */}
     </Routes>
   );

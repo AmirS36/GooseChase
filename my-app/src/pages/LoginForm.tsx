@@ -27,7 +27,7 @@ const LoginForm = () => {
     console.log("Login button clicked");
 
     try {
-      const response = await fetch("http://192.168.1.113:5000/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
